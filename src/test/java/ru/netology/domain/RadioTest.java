@@ -1,13 +1,12 @@
 package ru.netology.domain;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
     @Test
-    public void shouldCreate() {
+    public void setRadiostation() {
         Radio radio = new Radio();
         //radio.maxNumberOfRadiostation() = 9;
         //radio.minNumberOfRadiostation() = 0;
@@ -110,23 +109,101 @@ class RadioTest {
         int actual = radio.getMinNumberOfRadiostation();
         assertEquals(expected, actual);
     }
-//    @Test
-//    public void shouldInitFieldToZeroValues() {
-//      Conditioner conditioner = new Conditioner();
-//        assertNull(conditioner.name);
-//        assertEquals(0, conditioner.maxTemperature);
-//        assertEquals(0, conditioner.minTemperature);
-//        assertEquals(0, conditioner.currentTemperature);
-//        assertFalse(conditioner.on);
-//    }
 
 
+    @Test
+    public void setVolume() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
+        radio.setMaxVolume(10);
+        radio.setCurrentVolume(6);
 
-//    @Test
-//    public void shouldChangeFields() {
-//        Conditioner conditioner = new Conditioner();
-//        assertEquals(0, conditioner.currentTemperature);
-//        conditioner.currentTemperature = -100;
-//        assertEquals(-100, conditioner.currentTemperature);
-//    }
+        int expected = 6;
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void increaseVolume() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
+        radio.setMaxVolume(10);
+
+        radio.setCurrentVolume(11);
+        radio.increaseVolume(10);
+
+        int expected = 10;
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void increaseVolume1() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
+        radio.setMaxVolume(10);
+
+        radio.setCurrentVolume(7);
+        radio.increaseVolume(8);
+
+        int expected = 8;
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void decreaseVolume() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
+        radio.setMaxVolume(10);
+
+        radio.setCurrentVolume(-1);
+        radio.decreaseVolume(0);
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void decreaseVolume1() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
+        radio.setMaxVolume(10);
+
+        radio.setCurrentVolume(5);
+        radio.decreaseVolume(4);
+
+        int expected = 4;
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getMaxVolume() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
+        radio.setMaxVolume(10);
+        radio.setCurrentVolume(3);
+
+        radio.getMaxVolume();
+        int expected = 10;
+        int actual = radio.getMaxVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getMinVolume() {
+        Radio radio = new Radio();
+        radio.setMinVolume(0);
+        radio.setMaxVolume(10);
+        radio.setCurrentVolume(9);
+
+        radio.getMinVolume();
+        int expected = 0;
+        int actual = radio.getMinVolume();
+        assertEquals(expected, actual);
+    }
+
+
 }

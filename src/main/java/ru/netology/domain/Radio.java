@@ -1,12 +1,12 @@
 package ru.netology.domain;
 
 public class Radio {
-    //private String name;
     private int currentNumberOfRadiostation;
     private int minNumberOfRadiostation = 0;
     private int maxNumberOfRadiostation = 9;
-    //private int volume;
-    //private boolean on;
+    private int currentVolume;
+    private int maxVolume = 10;
+    private int minVolume = 0;
 
 
     public int getCurrentNumberOfRadiostation() {
@@ -45,60 +45,60 @@ public class Radio {
         }
     }
 
-    public void prevRadiostation (int prevRadiostation) {
+    public void prevRadiostation(int prevRadiostation) {
         if (currentNumberOfRadiostation < 0) {
             currentNumberOfRadiostation = 9;
         }
     }
 
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        //if (currentVolume > maxVolume) {
+        //    return;
+        //}
+        //if (currentVolume < minVolume) {
+        //    return;
+        //}
+        this.currentVolume = currentVolume;
+    }
+
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public void setMinVolume(int minVolume) {
+        this.minVolume = minVolume;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public void increaseVolume(int increasedVolume) {
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
+        }
+        if (currentVolume > 10) {
+            currentVolume = maxVolume;
+        }
+    }
+
+    public void decreaseVolume(int decreasedVolume) {
+        if (currentVolume <= 10) {
+            currentVolume = currentVolume - 1;
+        }
+        if (currentVolume < 0) {
+            currentVolume = minVolume;
+        }
+    }
 
 
-    //public String getName() {
-    //    return name;
-    //}
-
-    // public void setName(String name) {
-    //    this.name = name;
-    //}
-
-
-    //public void setMaxTemperature(int maxTemperature) {
-    //    this.maxTemperature = maxTemperature;
-    //}
-
-    //public void setMinTemperature(int minTemperature) {
-    //    this.minTemperature = minTemperature;
-    //}
-
-    //public int getCurrentTemperature() {
-    //    return currentTemperature;
-    //}
-
-    //public void setCurrentTemperature(int currentTemperature) {
-    //    if (currentTemperature > maxTemperature) {
-    //        return;
-    //    }
-    //    if (currentTemperature < minTemperature) {
-    //        return;
-    //    }
-    //    // здесь уверены, что все проверки прошли
-    //    this.currentTemperature = currentTemperature;
-    //}
-
-//    public void setCurrentTemperature(int currentTemperature) {
-//        if (currentTemperature <= maxTemperature) {
-//            if (currentTemperature >= minTemperature) {
-//                this.currentTemperature = currentTemperature;
-//            }
-//        }
-//    }
-
-    //public boolean isOn() {
-    //    return on;
-    //}
-
-    //public void setOn(boolean on) {
-    //    this.on = on;
-    //}
 }
