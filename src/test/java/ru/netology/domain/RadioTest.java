@@ -8,15 +8,10 @@ class RadioTest {
     @Test
     public void setRadiostation() {
         Radio radio = new Radio();
-        //radio.maxNumberOfRadiostation() = 9;
-        //radio.minNumberOfRadiostation() = 0;
-        //radio.on = true;
 
         radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
         radio.setCurrentNumberOfRadiostation(5);
-
-        //radio.setCurrentNumberOfRadiostation(11);
 
         int expected = 5;
         int actual = radio.getCurrentNumberOfRadiostation();
@@ -28,9 +23,8 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
-        //radio.setCurrentNumberOfRadiostation(0);
 
-        radio.setCurrentNumberOfRadiostation(10);
+        radio.setCurrentNumberOfRadiostation(9);
         radio.nextRadiostation(0);
 
         int expected = 0;
@@ -44,10 +38,9 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
-        //radio.setCurrentNumberOfRadiostation(0);
 
-        radio.setCurrentNumberOfRadiostation(8);
-        radio.nextRadiostation(7);
+        radio.setCurrentNumberOfRadiostation(7);
+        radio.nextRadiostation(8);
 
         int expected = 8;
         int actual = radio.getCurrentNumberOfRadiostation();
@@ -60,9 +53,8 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
-        //radio.setCurrentNumberOfRadiostation(0);
 
-        radio.setCurrentNumberOfRadiostation(-1);
+        radio.setCurrentNumberOfRadiostation(0);
         radio.prevRadiostation(9);
 
         int expected = 9;
@@ -77,8 +69,8 @@ class RadioTest {
         radio.setMinNumberOfRadiostation(0);
         radio.setCurrentNumberOfRadiostation(0);
 
-        radio.setCurrentNumberOfRadiostation(2);
-        radio.prevRadiostation(3);
+        radio.setCurrentNumberOfRadiostation(3);
+        radio.prevRadiostation(2);
         int expected = 2;
         int actual = radio.getCurrentNumberOfRadiostation();
         assertEquals(expected, actual);
@@ -129,7 +121,7 @@ class RadioTest {
         radio.setMinVolume(0);
         radio.setMaxVolume(10);
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(10);
         radio.increaseVolume(10);
 
         int expected = 10;
@@ -157,7 +149,7 @@ class RadioTest {
         radio.setMinVolume(0);
         radio.setMaxVolume(10);
 
-        radio.setCurrentVolume(-1);
+        radio.setCurrentVolume(0);
         radio.decreaseVolume(0);
 
         int expected = 0;
@@ -171,13 +163,14 @@ class RadioTest {
         radio.setMinVolume(0);
         radio.setMaxVolume(10);
 
-        radio.setCurrentVolume(5);
-        radio.decreaseVolume(4);
+        radio.setCurrentVolume(10);
+        radio.decreaseVolume(9);
 
-        int expected = 4;
+        int expected = 9;
         int actual = radio.getCurrentVolume();
         assertEquals(expected, actual);
     }
+
 
     @Test
     public void getMaxVolume() {
