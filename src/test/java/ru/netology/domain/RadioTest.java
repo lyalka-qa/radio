@@ -19,13 +19,39 @@ class RadioTest {
     }
 
     @Test
+    public void setRadiostation1() {
+        Radio radio = new Radio();
+
+        radio.setMaxNumberOfRadiostation(9);
+        radio.setMinNumberOfRadiostation(0);
+        radio.setCurrentNumberOfRadiostation(11);
+
+        int expected = 0;
+        int actual = radio.getCurrentNumberOfRadiostation();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setRadiostation2() {
+        Radio radio = new Radio();
+
+        radio.setMaxNumberOfRadiostation(9);
+        radio.setMinNumberOfRadiostation(0);
+        radio.setCurrentNumberOfRadiostation(-1);
+
+        int expected = 0;
+        int actual = radio.getCurrentNumberOfRadiostation();
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void nextRadiostation() {
         Radio radio = new Radio();
         radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
 
         radio.setCurrentNumberOfRadiostation(9);
-        radio.nextRadiostation(0);
+        radio.nextRadiostation();
 
         int expected = 0;
         int actual = radio.getCurrentNumberOfRadiostation();
@@ -40,7 +66,7 @@ class RadioTest {
         radio.setMinNumberOfRadiostation(0);
 
         radio.setCurrentNumberOfRadiostation(7);
-        radio.nextRadiostation(8);
+        radio.nextRadiostation();
 
         int expected = 8;
         int actual = radio.getCurrentNumberOfRadiostation();
@@ -55,7 +81,7 @@ class RadioTest {
         radio.setMinNumberOfRadiostation(0);
 
         radio.setCurrentNumberOfRadiostation(0);
-        radio.prevRadiostation(9);
+        radio.prevRadiostation();
 
         int expected = 9;
         int actual = radio.getCurrentNumberOfRadiostation();
@@ -70,7 +96,7 @@ class RadioTest {
         radio.setCurrentNumberOfRadiostation(0);
 
         radio.setCurrentNumberOfRadiostation(3);
-        radio.prevRadiostation(2);
+        radio.prevRadiostation();
         int expected = 2;
         int actual = radio.getCurrentNumberOfRadiostation();
         assertEquals(expected, actual);
@@ -122,7 +148,7 @@ class RadioTest {
         radio.setMaxVolume(10);
 
         radio.setCurrentVolume(10);
-        radio.increaseVolume(10);
+        radio.increaseVolume();
 
         int expected = 10;
         int actual = radio.getCurrentVolume();
@@ -136,7 +162,7 @@ class RadioTest {
         radio.setMaxVolume(10);
 
         radio.setCurrentVolume(7);
-        radio.increaseVolume(8);
+        radio.increaseVolume();
 
         int expected = 8;
         int actual = radio.getCurrentVolume();
@@ -150,7 +176,7 @@ class RadioTest {
         radio.setMaxVolume(10);
 
         radio.setCurrentVolume(0);
-        radio.decreaseVolume(0);
+        radio.decreaseVolume();
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -164,7 +190,7 @@ class RadioTest {
         radio.setMaxVolume(10);
 
         radio.setCurrentVolume(10);
-        radio.decreaseVolume(9);
+        radio.decreaseVolume();
 
         int expected = 9;
         int actual = radio.getCurrentVolume();
