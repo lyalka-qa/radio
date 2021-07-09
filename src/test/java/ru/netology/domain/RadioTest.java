@@ -193,13 +193,13 @@ class RadioTest {
     }
 
     @Test
-    public void setCurrentNumberOfRadiostationFlexible () {
+    public void setCurrentNumberOfRadiostationFlexible() {
         Radio radio = new Radio(101, 0, 1100);
-       assertEquals (101, radio.getCurrentNumberOfRadiostation());
+        assertEquals(101, radio.getCurrentNumberOfRadiostation());
     }
 
     @Test
-    public void NextRadiostationFlexible () {
+    public void NextRadiostationFlexible() {
         Radio radio = new Radio(110, 0, 110);
         radio.nextRadiostation();
 
@@ -207,7 +207,7 @@ class RadioTest {
     }
 
     @Test
-    public void PrevRadiostationFlexible () {
+    public void PrevRadiostationFlexible() {
         Radio radio = new Radio(0, 0, 110);
         radio.prevRadiostation();
 
