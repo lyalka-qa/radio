@@ -9,7 +9,7 @@ class RadioTest {
     @Test
     public void setRadiostation() {
         Radio radio = new Radio();
-        radio.setMaxNumberOfRadiostation(10);
+        radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
 
         radio.setCurrentNumberOfRadiostation(5);
@@ -20,7 +20,7 @@ class RadioTest {
     @Test
     public void setRadiostationOverMax() {
         Radio radio = new Radio();
-        radio.setMaxNumberOfRadiostation(10);
+        radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
 
         radio.setCurrentNumberOfRadiostation(111);
@@ -31,7 +31,7 @@ class RadioTest {
     @Test
     public void setRadiostationLowerMin() {
         Radio radio = new Radio();
-        radio.setMaxNumberOfRadiostation(10);
+        radio.setMaxNumberOfRadiostation(9);
         radio.setMinNumberOfRadiostation(0);
 
         radio.setCurrentNumberOfRadiostation(-1);
@@ -42,7 +42,7 @@ class RadioTest {
     @Test
     public void nextRadiostation() {
         Radio radio = new Radio();
-        radio.setCurrentNumberOfRadiostation(10);
+        radio.setCurrentNumberOfRadiostation(9);
 
         radio.nextRadiostation();
 
@@ -68,7 +68,7 @@ class RadioTest {
 
         radio.prevRadiostation();
 
-        assertEquals(10, radio.getCurrentNumberOfRadiostation());
+        assertEquals(9, radio.getCurrentNumberOfRadiostation());
     }
 
     @Test
@@ -86,7 +86,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.getMaxNumberOfRadiostation();
 
-        assertEquals(10, radio.getMaxNumberOfRadiostation());
+        assertEquals(9, radio.getMaxNumberOfRadiostation());
     }
 
     @Test
